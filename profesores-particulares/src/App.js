@@ -1,8 +1,10 @@
 import "./App.css";
 import * as React from "react";
 import SitioInstitucional from "./view/SitioInstitucional";
-import SignUp from "./view/SignUp";
-
+import Registrarse from "./view/Registrarse";
+import RegistrarProfesor from "./view/RegistrarProfesor";
+import RegistrarAlumno from "./view/RegistrarAlumno";
+import Ingresar from "./view/Ingresar";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
@@ -14,7 +16,10 @@ function App() {
             renders the first one that matches the current URL. */}
           <Routes>
             <Route path="/" element={<SitioInstitucional />} />
-            <Route path="/sign-up" element={<SignUp />} />
+            <Route path="/registrarse" element={<Registrarse />} />
+            <Route path="/registrar-profesor" element={<RegistrarProfesor />} />
+            <Route path="/registrar-alumno" element={<RegistrarAlumno />} />
+            <Route path="/ingresar" element={<Ingresar />} />
           </Routes>
         </div>
       </Router>

@@ -1,7 +1,8 @@
 import * as React from "react";
+import Divider from "@mui/material/Divider";
 import Header from "../components/Header";
 import DescripcionDeLaAplicacion from "../components/DescripcionDeLaAplicacion";
-import Divider from "@mui/material/Divider";
+import ListaDeClases from "../components/ListaDeClases";
 
 export default function SitioInstitucional() {
   return (
@@ -9,6 +10,7 @@ export default function SitioInstitucional() {
       <Header />
       <DescripcionDeLaAplicacion />
       <Divider />
+      <ListaDeClases />
     </>
   );
 }

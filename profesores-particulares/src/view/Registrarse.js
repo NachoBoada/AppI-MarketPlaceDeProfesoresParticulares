@@ -3,8 +3,6 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
 import Link from "@mui/material/Link";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
@@ -12,33 +10,25 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-
-function Copyright(props) {
-  return (
-    <Typography
-      variant="body2"
-      color="text.secondary"
-      align="center"
-      {...props}
-    >
-      {"Copyright © "}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
-}
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
 
 const theme = createTheme();
 
-export default function SignUp() {
+export default function Registrarse() {
+  const [tipoDeUsuario, settipoDeUsuario] = React.useState("");
+
+  const handleChange = (event) => {
+    settipoDeUsuario(event.target.value);
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     console.log({
-      email: data.get("email"),
+      mail: data.get("mail"),
       password: data.get("password"),
     });
   };
@@ -59,7 +49,7 @@ export default function SignUp() {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Sign up
+            Registrarse
           </Typography>
           <Box
             component="form"
@@ -71,11 +61,11 @@ export default function SignUp() {
               <Grid item xs={12} sm={6}>
                 <TextField
                   autoComplete="given-name"
-                  name="firstName"
+                  name="nombre"
                   required
                   fullWidth
-                  id="firstName"
-                  label="First Name"
+                  id="nombre"
+                  label="Nombre"
                   autoFocus
                 />
               </Grid>
@@ -83,60 +73,86 @@ export default function SignUp() {
                 <TextField
                   required
                   fullWidth
-                  id="lastName"
-                  label="Last Name"
-                  name="lastName"
+                  id="apellido"
+                  label="Apellido"
+                  name="apellido"
                   autoComplete="family-name"
                 />
               </Grid>
               <Grid item xs={12}>
+                <FormControl fullWidth>
+                  <InputLabel id="demo-simple-select-label">
+                    Tipo de Usuario*
+                  </InputLabel>
+                  <Select
+                    required
+                    fullWidth
+                    labelId="demo-simple-select-label"
+                    id="demo-simple-select"
+                    value={tipoDeUsuario}
+                    label="Tipo de Usuario"
+                    onChange={handleChange}
+                  >
+                    <MenuItem value={"Alumno"}>Alumno</MenuItem>
+                    <MenuItem value={"Profesor"}>Profesor</MenuItem>
+                  </Select>
+                </FormControl>
+              </Grid>
+              <Grid item xs={12}>
                 <TextField
                   required
                   fullWidth
-                  id="email"
-                  label="Email Address"
-                  name="email"
-                  autoComplete="email"
+                  id="tel"
+                  label="Telefono"
+                  name="telefono"
+                  autoComplete="telefono"
                 />
               </Grid>
               <Grid item xs={12}>
                 <TextField
                   required
                   fullWidth
-                  name="password"
-                  label="Password"
+                  id="mail"
+                  label="Mail"
+                  name="mail"
+                  autoComplete="mail"
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  required
+                  fullWidth
+                  name="contraseña"
+                  label="Contraseña"
                   type="password"
-                  id="password"
+                  id="contraseña"
                   autoComplete="new-password"
                 />
               </Grid>
-              <Grid item xs={12}>
-                <FormControlLabel
-                  control={
-                    <Checkbox value="allowExtraEmails" color="primary" />
-                  }
-                  label="I want to receive inspiration, marketing promotions and updates via email."
-                />
-              </Grid>
             </Grid>
+            {console.log("tipoDeUsuario", tipoDeUsuario)}
             <Button
               type="submit"
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
+              href={
+                tipoDeUsuario === "Profesor"
+                  ? "/registrar-profesor"
+                  : "/registrar-alumno"
+              }
             >
-              Sign Up
+              Registrarse
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
-                <Link href="#" variant="body2">
-                  Already have an account? Sign in
+                <Link href="/ingresar" variant="body2">
+                  Posee una cuenta? Ingresar
                 </Link>
               </Grid>
             </Grid>
           </Box>
         </Box>
-        <Copyright sx={{ mt: 5 }} />
       </Container>
     </ThemeProvider>
   );

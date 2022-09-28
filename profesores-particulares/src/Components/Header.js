@@ -8,7 +8,6 @@ import SchoolIcon from "@mui/icons-material/School";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
-import { Link } from "react-router-dom";
 
 export default function Header() {
   return (
@@ -39,8 +38,9 @@ export default function Header() {
                 aria-label="account of current user"
                 color="inherit"
                 variant="outlined"
+                href={"/ingresar"}
               >
-                Log In
+                Ingresar
               </Button>
               <Button
                 size="large"
@@ -48,13 +48,9 @@ export default function Header() {
                 aria-label="account of current user"
                 color="inherit"
                 variant="outlined"
+                href={"/registrarse"}
               >
-                <Link
-                  to="/sign-up"
-                  style={{ textDecoration: "none", color: "white" }}
-                >
-                  Sign Up
-                </Link>
+                Registrarse
               </Button>
             </Stack>
           </Box>
