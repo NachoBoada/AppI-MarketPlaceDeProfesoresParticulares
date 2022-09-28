@@ -18,7 +18,7 @@ export default function RegistrarAlumno(props) {
     const data = new FormData(event.currentTarget);
     console.log({
       mail: data.get("mail"),
-      password: data.get("password"),
+      constraseña: data.get("constraseña"),
     });
   };
 

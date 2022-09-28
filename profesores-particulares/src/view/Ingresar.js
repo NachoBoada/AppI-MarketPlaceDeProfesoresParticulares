@@ -21,7 +21,7 @@ export default function Ingresar() {
     const data = new FormData(event.currentTarget);
     console.log({
       mail: data.get("mail"),
-      password: data.get("password"),
+      constraseña: data.get("constraseña"),
     });
   };
 
@@ -63,15 +63,15 @@ export default function Ingresar() {
               margin="normal"
               required
               fullWidth
-              name="password"
-              label="Password"
+              name="constraseña"
+              label="Constraseña"
               type="password"
-              id="password"
-              autoComplete="current-password"
+              id="constraseña"
+              autoComplete="constraseña"
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
+              label="Recordar"
             />
             <Button
               type="submit"
