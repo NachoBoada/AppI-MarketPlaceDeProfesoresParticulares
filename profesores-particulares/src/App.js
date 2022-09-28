@@ -1,13 +1,18 @@
 import "./App.css";
 import * as React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import SitioInstitucional from "./view/SitioInstitucional";
 import Registrarse from "./view/Registrarse";
 import RegistrarProfesor from "./view/RegistrarProfesor";
 import RegistrarAlumno from "./view/RegistrarAlumno";
 import Ingresar from "./view/Ingresar";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import RegistrarClase from "./view/RegistrarClase";
+
+//export const UsuarioContext = React.createContext();
 
 function App() {
+  //const [usuario, setUsuario] = React.useState({});
+
   return (
     <>
       <Router>
@@ -20,11 +25,11 @@ function App() {
             <Route path="/registrar-profesor" element={<RegistrarProfesor />} />
             <Route path="/registrar-alumno" element={<RegistrarAlumno />} />
             <Route path="/ingresar" element={<Ingresar />} />
+            <Route path="/registrar-clase" element={<RegistrarClase />} />
           </Routes>
         </div>
       </Router>
     </>
   );
 }
-
 export default App;

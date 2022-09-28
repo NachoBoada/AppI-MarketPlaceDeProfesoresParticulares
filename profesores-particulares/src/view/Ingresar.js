@@ -63,11 +63,11 @@ export default function Ingresar() {
               margin="normal"
               required
               fullWidth
-              name="constraseña"
-              label="Constraseña"
+              name="contraseña"
+              label="Contraseña"
               type="password"
-              id="constraseña"
-              autoComplete="constraseña"
+              id="contraseña"
+              autoComplete="contraseña"
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}

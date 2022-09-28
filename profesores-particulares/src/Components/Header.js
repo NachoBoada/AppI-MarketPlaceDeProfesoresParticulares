@@ -9,7 +9,7 @@ import MoreIcon from "@mui/icons-material/MoreVert";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 
-export default function Header() {
+export default function Header(props) {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -32,6 +32,18 @@ export default function Header() {
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
             <Stack spacing={2} direction="row">
+              {props?.tipoDeUsuario === "Profesor" ? (
+                <Button
+                  size="large"
+                  edge="end"
+                  aria-label="account of current user"
+                  color="inherit"
+                  variant="outlined"
+                  href={"/registrar-clase"}
+                >
+                  Registrar Clase
+                </Button>
+              ) : null}
               <Button
                 size="large"
                 edge="end"

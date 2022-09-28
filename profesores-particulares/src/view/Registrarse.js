@@ -14,11 +14,14 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
+//import UsuarioContext from "../App";
 
 const theme = createTheme();
 
 export default function Registrarse() {
   const [tipoDeUsuario, settipoDeUsuario] = React.useState("");
+  //const usuario = React.useContext(UsuarioContext);
+  //console.log("usuario", usuario);
 
   const handleChange = (event) => {
     settipoDeUsuario(event.target.value);
@@ -29,7 +32,7 @@ export default function Registrarse() {
     const data = new FormData(event.currentTarget);
     console.log({
       mail: data.get("mail"),
-      password: data.get("password"),
+      constraseña: data.get("constraseña"),
     });
   };
 
@@ -126,7 +129,7 @@ export default function Registrarse() {
                   label="Contraseña"
                   type="password"
                   id="contraseña"
-                  autoComplete="new-password"
+                  autoComplete="contraseña"
                 />
               </Grid>
             </Grid>
