@@ -8,6 +8,7 @@ import SchoolIcon from "@mui/icons-material/School";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
+import { obtenerUsuario } from "../handlers/usuarioHandler";
 
 export default function Header(props) {
   return (
@@ -32,18 +33,22 @@ export default function Header(props) {
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
             <Stack spacing={2} direction="row">
-              {props?.propiedades?.usuario?.tipoDeUsuario === "Profesor" ? (
-                <Button
-                  size="large"
-                  edge="end"
-                  aria-label="account of current user"
-                  color="inherit"
-                  variant="outlined"
-                  href={"/registrar-clase"}
-                >
-                  Registrar Clase
-                </Button>
-              ) : null}
+              {console.log(
+                "obtenerUsuario(usuario).tipoDeUsuario: ",
+                obtenerUsuario("usuario")?.tipoDeUsuario
+              ) ||
+                (obtenerUsuario("usuario")?.tipoDeUsuario === "Profesor" && (
+                  <Button
+                    size="large"
+                    edge="end"
+                    aria-label="account of current user"
+                    color="inherit"
+                    variant="outlined"
+                    href={"/administrar-clases"}
+                  >
+                    Administrar Clases
+                  </Button>
+                ))}
               <Button
                 size="large"
                 edge="end"

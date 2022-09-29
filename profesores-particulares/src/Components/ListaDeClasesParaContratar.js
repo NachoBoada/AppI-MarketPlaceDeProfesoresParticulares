@@ -26,7 +26,7 @@ const clases = {
   },
 };
 
-export default function RegistrarClase(props) {
+export default function ListaDeClasesParaContratar(props) {
   return (
     <List sx={{ width: "100%", bgcolor: "background.paper" }}>
       <ListItem alignItems="flex-start">

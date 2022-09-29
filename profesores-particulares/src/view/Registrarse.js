@@ -14,7 +14,7 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
-import actualizarUsuario from "../helpers/actualizarUsuario";
+import { actualizarUsuario, crearUsuario } from "../handlers/usuarioHandler";
 
 const theme = createTheme();
 
@@ -24,10 +24,6 @@ export default function Registrarse(props) {
   const handleChange = (event) => {
     setTipoDeUsuario(event.target.value);
   };
-
-  React.useEffect(() => {
-    if (tipoDeUsuario) actualizarUsuario({ tipoDeUsuario });
-  }, [tipoDeUsuario]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -146,6 +142,12 @@ export default function Registrarse(props) {
                   ? "/registrar-profesor"
                   : "/registrar-alumno"
               }
+              onClick={() => {
+                let claveUsuario = "usuario";
+                crearUsuario(claveUsuario);
+                if (tipoDeUsuario)
+                  actualizarUsuario(claveUsuario, { tipoDeUsuario });
+              }}
             >
               Registrarse
             </Button>
