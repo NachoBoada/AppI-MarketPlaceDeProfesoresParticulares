@@ -8,10 +8,8 @@ import RegistrarAlumno from "./view/RegistrarAlumno";
 import Ingresar from "./view/Ingresar";
 import RegistrarClase from "./view/RegistrarClase";
 
-//export const UsuarioContext = React.createContext();
-
 function App() {
-  //const [usuario, setUsuario] = React.useState({});
+  const [usuario, setUsuario] = React.useState({});
 
   return (
     <>
@@ -20,12 +18,36 @@ function App() {
           {/* A <Routes> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
           <Routes>
-            <Route path="/" element={<SitioInstitucional />} />
-            <Route path="/registrarse" element={<Registrarse />} />
-            <Route path="/registrar-profesor" element={<RegistrarProfesor />} />
-            <Route path="/registrar-alumno" element={<RegistrarAlumno />} />
-            <Route path="/ingresar" element={<Ingresar />} />
-            <Route path="/registrar-clase" element={<RegistrarClase />} />
+            <Route
+              path="/"
+              element={
+                <SitioInstitucional propiedades={{ usuario, setUsuario }} />
+              }
+            />
+            <Route
+              path="/registrarse"
+              element={<Registrarse propiedades={{ usuario, setUsuario }} />}
+            />
+            <Route
+              path="/registrar-profesor"
+              element={
+                <RegistrarProfesor propiedades={{ usuario, setUsuario }} />
+              }
+            />
+            <Route
+              path="/registrar-alumno"
+              element={
+                <RegistrarAlumno propiedades={{ usuario, setUsuario }} />
+              }
+            />
+            <Route
+              path="/ingresar"
+              element={<Ingresar propiedades={{ usuario, setUsuario }} />}
+            />
+            <Route
+              path="/registrar-clase"
+              element={<RegistrarClase propiedades={{ usuario, setUsuario }} />}
+            />
           </Routes>
         </div>
       </Router>

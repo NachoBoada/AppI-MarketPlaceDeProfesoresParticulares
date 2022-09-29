@@ -10,6 +10,7 @@ import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 
 export default function Header(props) {
+  console.log("Header props", props);
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -32,7 +33,7 @@ export default function Header(props) {
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
             <Stack spacing={2} direction="row">
-              {props?.tipoDeUsuario === "Profesor" ? (
+              {props?.propiedades?.usuario?.tipoDeUsuario === "Profesor" ? (
                 <Button
                   size="large"
                   edge="end"

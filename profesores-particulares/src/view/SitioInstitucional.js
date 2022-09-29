@@ -4,10 +4,10 @@ import Header from "../components/Header";
 import DescripcionDeLaAplicacion from "../components/DescripcionDeLaAplicacion";
 import ListaDeClases from "../components/ListaDeClases";
 
-export default function SitioInstitucional() {
+export default function SitioInstitucional(props) {
   return (
     <>
-      <Header />
+      <Header propiedades={props} />
       <DescripcionDeLaAplicacion />
       <Divider />
       <ListaDeClases />
