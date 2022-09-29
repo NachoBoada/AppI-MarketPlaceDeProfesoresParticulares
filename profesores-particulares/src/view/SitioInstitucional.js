@@ -5,9 +5,10 @@ import DescripcionDeLaAplicacion from "../components/DescripcionDeLaAplicacion";
 import ListaDeClases from "../components/ListaDeClases";
 
 export default function SitioInstitucional(props) {
+  localStorage.setItem("usuario", JSON.stringify({}));
   return (
     <>
-      <Header propiedades={props} />
+      <Header />
       <DescripcionDeLaAplicacion />
       <Divider />
       <ListaDeClases />

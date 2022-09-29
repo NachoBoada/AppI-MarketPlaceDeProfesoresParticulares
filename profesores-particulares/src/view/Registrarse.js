@@ -14,25 +14,20 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
+import actualizarUsuario from "../helpers/actualizarUsuario";
 
 const theme = createTheme();
 
 export default function Registrarse(props) {
-  console.log("Registrarse props", props);
-  const [tipoDeUsuario, settipoDeUsuario] = React.useState("");
+  const [tipoDeUsuario, setTipoDeUsuario] = React.useState("");
 
   const handleChange = (event) => {
-    settipoDeUsuario(event.target.value);
+    setTipoDeUsuario(event.target.value);
   };
 
   React.useEffect(() => {
-    props.propiedades.setUsuario((prevUsuario) => {
-      return { ...prevUsuario, tipoDeUsuario: tipoDeUsuario };
-    });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    if (tipoDeUsuario) actualizarUsuario({ tipoDeUsuario });
   }, [tipoDeUsuario]);
-
-  console.log("usuario", props.propiedades.usuario);
 
   const handleSubmit = (event) => {
     event.preventDefault();
