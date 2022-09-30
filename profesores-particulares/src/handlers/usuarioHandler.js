@@ -20,7 +20,7 @@ export const crearUsuario = (claveUsuarioNuevo) => {
 
 export const obtenerUsuario = (claveUsuario) => {
   console.log(
-    `usuario ${claveUsuario} CREADO: `,
+    `usuario ${claveUsuario}: `,
     JSON.parse(localStorage.getItem(claveUsuario.toString()))
   );
   return JSON.parse(localStorage.getItem(claveUsuario.toString()));
