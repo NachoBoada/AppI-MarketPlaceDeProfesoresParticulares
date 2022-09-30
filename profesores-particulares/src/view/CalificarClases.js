@@ -1,7 +1,10 @@
 import * as React from "react";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
+import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
+import Grid from "@mui/material/Grid";
+import Button from "@mui/material/Button";
 import Divider from "@mui/material/Divider";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
@@ -9,6 +12,48 @@ import Rating from "@mui/material/Rating";
 import Typography from "@mui/material/Typography";
 import { clasesMockeadas } from "../data/clasesMockeadas";
 import HeaderBasico from "../components/HeaderBasico";
+import TextField from "@mui/material/TextField";
+
+const AgregarComentario = (props) => {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+    console.log({
+      mail: data.get("mail"),
+      constraseña: data.get("constraseña"),
+    });
+  };
+
+  return (
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+      }}
+    >
+      <Box component="form" noValidate onSubmit={handleSubmit}>
+        <Grid container>
+          <Grid item xs={12}>
+            <TextField
+              sx={{ minWidth: 275 }}
+              fullWidth
+              multiline
+              rows={2}
+              id="fechaDeNacimiento"
+              label="Fecha de Nacimiento"
+              name="fechaDeNacimiento"
+              autoComplete="fechaDeNacimiento"
+            />
+          </Grid>
+        </Grid>
+        <Button type="submit" fullWidth variant="contained" sx={{ mt: 1 }}>
+          Enviar Comentario al profesor
+        </Button>
+      </Box>
+    </Box>
+  );
+};
 
 const ClaseContratada = (props) => {
   const [calificacion, setCalificacion] = React.useState(0);
@@ -28,16 +73,23 @@ const ClaseContratada = (props) => {
       </CardContent>
 
       <CardActions>
-        <Typography paddingLeft={1} paddingRight={1} fontWeight="bold">
-          Calificar clase:
-        </Typography>
-        <Rating
-          name="simple-controlled"
-          value={calificacion}
-          onChange={(event, newValue) => {
-            setCalificacion(newValue);
-          }}
-        />
+        <Grid container paddingLeft={1}>
+          <Grid item xs={12} display="flex" paddingBottom={1}>
+            <Typography paddingRight={1} fontWeight="bold">
+              Calificar clase:
+            </Typography>
+            <Rating
+              name="simple-controlled"
+              value={calificacion}
+              onChange={(event, newValue) => {
+                setCalificacion(newValue);
+              }}
+            />
+          </Grid>
+          <Grid item xs={12} display="flex">
+            <AgregarComentario />
+          </Grid>
+        </Grid>
       </CardActions>
     </Card>
   ) : (
