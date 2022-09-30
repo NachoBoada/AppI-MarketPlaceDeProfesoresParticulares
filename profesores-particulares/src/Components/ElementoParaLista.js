@@ -23,7 +23,10 @@ export default function ElementoParaLista(props) {
           </CardContent>
 
           <CardActions>
-            <Button size="small">Learn More</Button>
+            <Button size="small">Modificar</Button>
+            <Button size="small">Publicar</Button>
+            <Button size="small">Despublicar</Button>
+            <Button size="small">Eliminar</Button>
           </CardActions>
         </Card>
       ) : (

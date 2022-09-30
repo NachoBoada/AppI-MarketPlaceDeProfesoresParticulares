@@ -7,6 +7,8 @@ import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
+import { Box } from "@mui/system";
+import Rating from "@mui/material/Rating";
 //import clasesMockeadas from "../data/clasesMockeadas";
 
 const clases = {
@@ -22,86 +24,82 @@ const clases = {
     duracion: "68 hs",
     frecuencia: "Martes y Jueves de 18:30 a 22:30 hs",
     costo: "$18000",
-    calificacion: ["***"],
-    comentarios: ["Muy bunea clase"],
+    calificacion: [5, 3],
+    comentarios: ["Muy buena clase", "No está mal"],
   },
+};
+
+const ItemForList = () => {
+  return (
+    <>
+      <ListItem alignItems="flex-start">
+        <Card elevation={0}>
+          <React.Fragment>
+            <CardContent>
+              <Typography gutterBottom variant="h5">
+                {clases.prof1.nombre} - {clases.prof1.clase}
+              </Typography>
+              <Typography variant="body2">
+                <b>Duracion:</b> {clases.prof1.duracion}
+              </Typography>
+              <Typography variant="body2">
+                <b>Frecuencia:</b> {clases.prof1.frecuencia}
+              </Typography>
+              <Typography variant="body2">
+                <b>Precio:</b> {clases.prof1.costo}
+              </Typography>
+              <Typography variant="body2">
+                <i>Experiencia:</i> {clases.prof1.experiencia.trabajos}
+              </Typography>
+              <Typography variant="body2">
+                <i>Educación:</i> {clases.prof1.experiencia.titulos}
+              </Typography>
+              <Typography variant="h6">Calificaciones:</Typography>
+              <Box>
+                <List>
+                  {clases.prof1.calificacion.map((calif, index) => (
+                    <li key={`section-${clases.prof1.comentarios[index]}`}>
+                      <ul>
+                        <ListItem
+                          key={`listitem-${clases.prof1.comentarios[index]}`}
+                        >
+                          <Card sx={{ width: "100%" }}>
+                            <CardContent>
+                              <Rating name="read-only" value={calif} readOnly />
+                              <Typography variant="body2" paddingTop={1}>
+                                {clases.prof1.comentarios[index]}
+                              </Typography>
+                            </CardContent>
+                          </Card>
+                        </ListItem>
+                      </ul>
+                    </li>
+                  ))}
+                </List>
+              </Box>
+            </CardContent>
+            <CardActions>
+              <Button size="small">Contratar</Button>
+            </CardActions>
+          </React.Fragment>
+        </Card>
+      </ListItem>
+      <Divider />
+    </>
+  );
 };
 
 export default function ListaDeClasesParaContratar(props) {
   return (
     <List sx={{ width: "100%", bgcolor: "background.paper" }}>
-      <ListItem alignItems="flex-start">
-        <Card elevation={0}>
-          <React.Fragment>
-            <CardContent>
-              <Typography gutterBottom variant="h5">
-                {clases.prof1.nombre} - {clases.prof1.clase}
-              </Typography>
-              <Typography variant="body2">
-                <b>Duracion:</b> {clases.prof1.duracion}
-              </Typography>
-              <Typography variant="body2">
-                <b>Frecuencia:</b> {clases.prof1.frecuencia}
-              </Typography>
-              <Typography variant="body2">
-                <b>Precio:</b> {clases.prof1.costo}
-              </Typography>
-              <Typography variant="body2">
-                <i>Experiencia:</i> {clases.prof1.experiencia.trabajos}
-              </Typography>
-              <Typography variant="body2">
-                <i>Educación:</i> {clases.prof1.experiencia.titulos}
-              </Typography>
-              <Typography variant="body2">
-                {clases.prof1.calificacion}
-              </Typography>
-              <Typography variant="body2">
-                {clases.prof1.comentarios}
-              </Typography>
-            </CardContent>
-            <CardActions>
-              <Button size="small">Contratar</Button>
-            </CardActions>
-          </React.Fragment>
-        </Card>
-      </ListItem>
-      <Divider />
-      <ListItem alignItems="flex-start">
-        <Card elevation={0}>
-          <React.Fragment>
-            <CardContent>
-              <Typography gutterBottom variant="h5">
-                {clases.prof1.nombre} - {clases.prof1.clase}
-              </Typography>
-              <Typography variant="body2">
-                <b>Duracion:</b> {clases.prof1.duracion}
-              </Typography>
-              <Typography variant="body2">
-                <b>Frecuencia:</b> {clases.prof1.frecuencia}
-              </Typography>
-              <Typography variant="body2">
-                <b>Precio:</b> {clases.prof1.costo}
-              </Typography>
-              <Typography variant="body2">
-                <i>Experiencia:</i> {clases.prof1.experiencia.trabajos}
-              </Typography>
-              <Typography variant="body2">
-                <i>Educación:</i> {clases.prof1.experiencia.titulos}
-              </Typography>
-              <Typography variant="body2">
-                {clases.prof1.calificacion}
-              </Typography>
-              <Typography variant="body2">
-                {clases.prof1.comentarios}
-              </Typography>
-            </CardContent>
-            <CardActions>
-              <Button size="small">Contratar</Button>
-            </CardActions>
-          </React.Fragment>
-        </Card>
-      </ListItem>
-      <Divider />
+      <ItemForList />
+      <ItemForList />
+      <ItemForList />
+      <ItemForList />
+      <ItemForList />
+      <ItemForList />
+      <ItemForList />
+      <ItemForList />
     </List>
   );
 }

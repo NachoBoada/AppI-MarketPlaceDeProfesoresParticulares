@@ -6,7 +6,7 @@ import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
 import SchoolIcon from "@mui/icons-material/School";
 
-export default function HeaderCrearClase() {
+export default function HeaderBasico(props) {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -22,7 +22,7 @@ export default function HeaderCrearClase() {
             <SchoolIcon />
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Crear Clase
+            {props.titulo}
           </Typography>
         </Toolbar>
       </AppBar>

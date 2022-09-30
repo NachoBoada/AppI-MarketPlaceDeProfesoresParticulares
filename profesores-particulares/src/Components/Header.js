@@ -48,6 +48,18 @@ export default function Header(props) {
                   >
                     Administrar Clases
                   </Button>
+                )) ||
+                (obtenerUsuario("usuario")?.tipoDeUsuario === "Alumno" && (
+                  <Button
+                    size="large"
+                    edge="end"
+                    aria-label="account of current user"
+                    color="inherit"
+                    variant="outlined"
+                    href={"/calificar-clases"}
+                  >
+                    Calificar Clases
+                  </Button>
                 ))}
               <Button
                 size="large"

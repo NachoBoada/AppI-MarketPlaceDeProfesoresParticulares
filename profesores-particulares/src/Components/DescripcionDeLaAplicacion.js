@@ -7,7 +7,7 @@ export default function DescripcionDeLaAplicacion() {
   return (
     <>
       <Box sx={{ width: "100%" }}>
-        <Typography variant="h3" gutterBottom align="center">
+        <Typography variant="h3" gutterBottom align="center" paddingTop={2}>
           Encontrá los mejores Profesores Particulares!
         </Typography>
         <Divider />

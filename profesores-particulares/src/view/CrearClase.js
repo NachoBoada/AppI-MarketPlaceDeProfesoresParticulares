@@ -6,7 +6,7 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import HeaderCrearClase from "../components/HeaderCrearClase";
+import HeaderBasico from "../components/HeaderBasico";
 import { actualizarUsuario, obtenerUsuario } from "../handlers/usuarioHandler";
 
 const theme = createTheme();
@@ -43,7 +43,7 @@ export default function CrearClase() {
 
   return (
     <ThemeProvider theme={theme}>
-      <HeaderCrearClase />
+      <HeaderBasico titulo="Crear Clase" />
       <Typography
         variant="h4"
         display="flex"

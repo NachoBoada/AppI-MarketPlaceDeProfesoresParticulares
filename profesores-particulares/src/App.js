@@ -8,6 +8,7 @@ import RegistrarAlumno from "./view/RegistrarAlumno";
 import Ingresar from "./view/Ingresar";
 import AdministrarClases from "./view/AdministrarClases";
 import CrearClase from "./view/CrearClase";
+import CalificarClases from "./view/CalificarClases";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
             <Route path="/ingresar" element={<Ingresar />} />
             <Route path="/administrar-clases" element={<AdministrarClases />} />
             <Route path="/crear-clase" element={<CrearClase />} />
+            <Route path="/calificar-clases" element={<CalificarClases />} />
           </Routes>
         </div>
       </Router>
