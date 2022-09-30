@@ -9,9 +9,12 @@ import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import { Box } from "@mui/system";
 import Rating from "@mui/material/Rating";
+import Dialog from "@mui/material/Dialog";
+import DialogContent from "@mui/material/DialogContent";
+import ContratarClase from "./ContratarClase";
 //import clasesMockeadas from "../data/clasesMockeadas";
 
-const clases = {
+export const clases = {
   prof1: {
     nombre: "Juan Fernandez",
     experiencia: {
@@ -30,6 +33,10 @@ const clases = {
 };
 
 const ItemForList = () => {
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
   return (
     <>
       <ListItem alignItems="flex-start">
@@ -78,8 +85,22 @@ const ItemForList = () => {
                 </List>
               </Box>
             </CardContent>
+
             <CardActions>
-              <Button size="small">Contratar</Button>
+              <Button size="small" onClick={handleOpen}>
+                Contratar
+              </Button>
+              <Dialog
+                open={open}
+                onClose={handleClose}
+                scroll={"paper"}
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+              >
+                <DialogContent>
+                  <ContratarClase />
+                </DialogContent>
+              </Dialog>
             </CardActions>
           </React.Fragment>
         </Card>
