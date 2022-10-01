@@ -33,54 +33,54 @@ export default function Header(props) {
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
             <Stack spacing={2} direction="row">
-              {console.log(
-                "obtenerUsuario(usuario).tipoDeUsuario: ",
-                obtenerUsuario("usuario")?.tipoDeUsuario
-              ) ||
-                (obtenerUsuario("usuario")?.tipoDeUsuario === "Profesor" && (
+              {obtenerUsuario("usuario")?.tipoDeUsuario ? (
+                obtenerUsuario("usuario")?.tipoDeUsuario === "Profesor" ? (
                   <Button
                     size="large"
                     edge="end"
                     aria-label="account of current user"
                     color="inherit"
                     variant="outlined"
-                    href={"/administrar-clases"}
+                    href={"/perfil-profesor"}
                   >
-                    Administrar Clases
+                    Perfil Profesor
                   </Button>
-                )) ||
-                (obtenerUsuario("usuario")?.tipoDeUsuario === "Alumno" && (
+                ) : (
                   <Button
                     size="large"
                     edge="end"
                     aria-label="account of current user"
                     color="inherit"
                     variant="outlined"
-                    href={"/calificar-clases"}
+                    href={"/perfil-alumno"}
                   >
-                    Calificar Clases
+                    Perfil Alumno
                   </Button>
-                ))}
-              <Button
-                size="large"
-                edge="end"
-                aria-label="account of current user"
-                color="inherit"
-                variant="outlined"
-                href={"/ingresar"}
-              >
-                Ingresar
-              </Button>
-              <Button
-                size="large"
-                edge="end"
-                aria-label="account of current user"
-                color="inherit"
-                variant="outlined"
-                href={"/registrarse"}
-              >
-                Registrarse
-              </Button>
+                )
+              ) : (
+                <>
+                  <Button
+                    size="large"
+                    edge="end"
+                    aria-label="account of current user"
+                    color="inherit"
+                    variant="outlined"
+                    href={"/ingresar"}
+                  >
+                    Ingresar
+                  </Button>
+                  <Button
+                    size="large"
+                    edge="end"
+                    aria-label="account of current user"
+                    color="inherit"
+                    variant="outlined"
+                    href={"/registrarse"}
+                  >
+                    Registrarse
+                  </Button>
+                </>
+              )}
             </Stack>
           </Box>
           <Box sx={{ display: { xs: "flex", md: "none" } }}>

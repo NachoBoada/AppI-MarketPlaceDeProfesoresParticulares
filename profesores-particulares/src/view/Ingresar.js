@@ -84,9 +84,17 @@ export default function Ingresar() {
             </Button>
             <Grid container>
               <Grid item xs>
-                <Link href="#" variant="body2">
-                  OLVIDE CONTRASEÑA
-                </Link>
+                <Button
+                  onClick={() => {
+                    alert(
+                      `Hemos enviado un mail al mail ingresado para resetear la contraseña`
+                    );
+                  }}
+                >
+                  <Link href="#" variant="body2">
+                    OLVIDE CONTRASEÑA
+                  </Link>
+                </Button>
               </Grid>
               <Grid item>
                 <Link href="/registrarse" variant="body2">

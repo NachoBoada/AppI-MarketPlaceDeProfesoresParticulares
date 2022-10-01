@@ -98,7 +98,7 @@ const ItemForList = () => {
                 aria-describedby="modal-modal-description"
               >
                 <DialogContent>
-                  <ContratarClase />
+                  <ContratarClase isOpen={setOpen} />
                 </DialogContent>
               </Dialog>
             </CardActions>

@@ -8,7 +8,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 const theme = createTheme();
 
-export default function ContratarClase() {
+export default function ContratarClase(props) {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -19,6 +19,7 @@ export default function ContratarClase() {
       frecuencia: data.get("frecuencia"),
       costo: data.get("costo"),
     });
+    props.isOpen(false);
   };
 
   return (
